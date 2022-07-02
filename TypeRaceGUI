@@ -1,0 +1,159 @@
+
+local TypeRaceScriptGUI = Instance.new("ScreenGui")
+local UI = Instance.new("ImageLabel")
+local UIGradient = Instance.new("UIGradient")
+local UICorner = Instance.new("UICorner")
+local Pattern = Instance.new("ImageLabel")
+local Button = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Shadow = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+
+
+TypeRaceScriptGUI.Name = "TypeRaceScriptGUI"
+TypeRaceScriptGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+UI.Name = "UI"
+UI.Parent = TypeRaceScriptGUI
+UI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UI.BackgroundTransparency = 1.000
+UI.Position = UDim2.new(0.00785341859, 0, 0.0342137218, 0)
+UI.Size = UDim2.new(0, 391, 0, 221)
+UI.Image = "rbxassetid://3570695787"
+UI.ScaleType = Enum.ScaleType.Slice
+UI.SliceCenter = Rect.new(100, 100, 100, 100)
+UI.SliceScale = 0.120
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 148, 102)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(237, 102, 109))}
+UIGradient.Parent = UI
+
+UICorner.CornerRadius = UDim.new(0, 4)
+UICorner.Parent = UI
+
+Pattern.Name = "Pattern"
+Pattern.Parent = UI
+Pattern.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Pattern.BackgroundTransparency = 1.000
+Pattern.Position = UDim2.new(-0.000555515289, 0, 0.00270670652, 0)
+Pattern.Size = UDim2.new(0, 391, 0, 221)
+Pattern.ZIndex = 9
+Pattern.Image = "rbxassetid://2151741365"
+Pattern.ImageTransparency = 0.600
+Pattern.ScaleType = Enum.ScaleType.Tile
+Pattern.SliceCenter = Rect.new(0, 256, 0, 256)
+Pattern.TileSize = UDim2.new(0, 250, 0, 250)
+
+Button.Name = "Button"
+Button.Parent = UI
+Button.BackgroundColor3 = Color3.fromRGB(77, 100, 150)
+Button.BorderSizePixel = 0
+Button.Position = UDim2.new(0.139386192, 0, 0.328054309, 0)
+Button.Size = UDim2.new(0, 299, 0, 75)
+Button.ZIndex = 2
+Button.Font = Enum.Font.GothamMedium
+Button.Text = ""
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.TextScaled = true
+Button.TextSize = 14.000
+Button.TextWrapped = true
+
+UICorner_2.Parent = Button
+
+Shadow.Name = "Shadow"
+Shadow.Parent = Button
+Shadow.BackgroundColor3 = Color3.fromRGB(53, 69, 103)
+Shadow.BorderSizePixel = 0
+Shadow.Size = UDim2.new(1, 0, 1, 4)
+
+UICorner_3.Parent = Shadow
+
+TextLabel.Parent = Button
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel.Size = UDim2.new(1, -20, 1, -20)
+TextLabel.ZIndex = 2
+TextLabel.Font = Enum.Font.GothamMedium
+TextLabel.Text = "Run script"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = UI
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0, 0, 0.03167421, 0)
+TextLabel_2.Size = UDim2.new(0, 391, 0, 38)
+TextLabel_2.Text = "Type race script - by 7alexv7"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = UI
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0, 0, 0.76018101, 0)
+TextLabel_3.Size = UDim2.new(0, 391, 0, 50)
+TextLabel_3.Font = Enum.Font.Nunito
+TextLabel_3.Text = "Having trouble using this? Check my YouTube video with this script!"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+
+local function AlxScript() -- Button.LocalScript 
+	local script = Instance.new('LocalScript', Button)
+
+	Button.MouseButton1Click:Connect(function()
+	
+	
+		_G.wpmlimit = 250
+		_G.keydelay = 0.056
+	
+		local vim = game:GetService("VirtualInputManager") 
+		
+	
+		
+		local function findLetterTable()
+			for i,obj in pairs( getgc() ) do
+				if type(obj) == "function" and getfenv(obj).script == game:GetService("Players").LocalPlayer.PlayerGui.LocalMain then
+					local consts=debug.getconstants(obj)
+					if consts[8]=="idXTO3JVlV0CBTmiSbaQ" then
+						--local tab=debug.getupvalue(obj,4)
+						return debug.getupvalue(obj,4) 
+					end end end end 
+		
+	
+		local descendants = findLetterTable()
+		for index, descendant in pairs(descendants) do
+			if string.upper(descendant) ~= " " then 
+				local key = Enum.KeyCode[string.upper(descendant)]
+				vim:SendKeyEvent(1,key,0,nil)
+				vim:SendKeyEvent(0,key,0,nil) 
+			else
+				vim:SendKeyEvent(1,32,0,nil) 
+				vim:SendKeyEvent(0,32,0,nil) 
+			end
+			while tonumber(game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.RaceScreen.LiveStats.WPM.Stat.Text) > _G.wpmlimit do
+				task.wait() 
+			end
+			wait(_G.keydelay)
+			if game.Workspace:FindFirstChild("Doll") then 
+				while game:GetService("SoundService").DollSaying.TimePosition > 5 or game:GetService("SoundService").DollSaying.TimePosition <= 0 do
+					task.wait() 
+				end
+			end
+		end
+		end)
+end
+coroutine.wrap(AlxScript)()
