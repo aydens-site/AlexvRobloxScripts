@@ -1,0 +1,122 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Button = Instance.new("TextButton")
+local Shadow = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
+local Tutorial = Instance.new("TextLabel")
+local GuessedLabel = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.636170685, 0, 0.615574777, 0)
+Frame.Size = UDim2.new(0, 384, 0, 304)
+
+Button.Name = "Button"
+Button.Parent = Frame
+Button.BackgroundColor3 = Color3.fromRGB(77, 156, 115)
+Button.BorderSizePixel = 0
+Button.Position = UDim2.new(0.265625, 0, 0.375869334, 0)
+Button.Size = UDim2.new(0, 180, 0, 58)
+Button.ZIndex = 2
+Button.Font = Enum.Font.GothamMedium
+Button.Text = ""
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.TextScaled = true
+Button.TextSize = 14.000
+Button.TextWrapped = true
+
+Shadow.Name = "Shadow"
+Shadow.Parent = Button
+Shadow.BackgroundColor3 = Color3.fromRGB(58, 118, 86)
+Shadow.BorderSizePixel = 0
+Shadow.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel.Parent = Button
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.5, 0, 0.534482777, 0)
+TextLabel.Size = UDim2.new(1, -20, 1.26666665, -20)
+TextLabel.ZIndex = 2
+TextLabel.Font = Enum.Font.GothamMedium
+TextLabel.Text = "Guess"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.0234375, 0, 0, 0)
+Title.Size = UDim2.new(0, 365, 0, 50)
+Title.Font = Enum.Font.PermanentMarker
+Title.Text = "Guess how many script"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Tutorial.Name = "Tutorial"
+Tutorial.Parent = Frame
+Tutorial.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Tutorial.BackgroundTransparency = 1.000
+Tutorial.BorderSizePixel = 0
+Tutorial.Position = UDim2.new(0.0234375, 0, 0.151315793, 0)
+Tutorial.Size = UDim2.new(0, 365, 0, 59)
+Tutorial.Font = Enum.Font.PermanentMarker
+Tutorial.Text = "More information about how to use it on my YouTube channel (AlexvPlays)"
+Tutorial.TextColor3 = Color3.fromRGB(0, 0, 0)
+Tutorial.TextScaled = true
+Tutorial.TextSize = 14.000
+Tutorial.TextWrapped = true
+
+GuessedLabel.Name = "GuessedLabel"
+GuessedLabel.Parent = Frame
+GuessedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GuessedLabel.BackgroundTransparency = 1.000
+GuessedLabel.BorderSizePixel = 0
+GuessedLabel.Position = UDim2.new(0, 0, 0.608552635, 0)
+GuessedLabel.Size = UDim2.new(0, 384, 0, 119)
+GuessedLabel.Font = Enum.Font.PermanentMarker
+GuessedLabel.Text = "Click the guess button after the jar is filled and this will guess how many are there"
+GuessedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+GuessedLabel.TextScaled = true
+GuessedLabel.TextSize = 14.000
+GuessedLabel.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(224, 43, 39)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(168, 3, 3))}
+UIGradient.Parent = Frame
+
+-- Scripts:
+
+local function ORLSNV_fake_script() -- Button.LocalScript 
+	local script = Instance.new('LocalScript', Button)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local count = -12
+		for _,v in pairs(workspace.Items:GetChildren()) do
+			count = count + 1
+		end
+		script.Parent.Parent.GuessedLabel.Text = count
+	end)
+end
+coroutine.wrap(ORLSNV_fake_script)()
